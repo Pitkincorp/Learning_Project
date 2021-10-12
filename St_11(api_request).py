@@ -16,6 +16,7 @@ j = json.loads(r.text)
 
 # достаем токен
 token = j["token"]
+print(token)
 
 # создаем заголовок, содержащий наш токен
 headers = {"X-Xapp-Token" : token}
@@ -25,3 +26,4 @@ r = requests.get("https://api.artsy.net/api/artists/4d8b92b34eb68a1b2c0003f4", h
 
 # разбираем ответ сервера
 j = json.loads(r.text)
+print(j)
