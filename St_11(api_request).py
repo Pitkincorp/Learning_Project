@@ -16,14 +16,19 @@ j = json.loads(r.text)
 
 # достаем токен
 token = j["token"]
-print(token)
 
 # создаем заголовок, содержащий наш токен
 headers = {"X-Xapp-Token" : token}
 
-# инициируем запрос с заголовком
-r = requests.get("https://api.artsy.net/api/artists/4d8b92b34eb68a1b2c0003f4", headers=headers)
+ans = {}
+with open(r"C:\Users\YaYuBeletskiy\Downloads\dataset_24476_4.txt") as file:
+    for line in file.readlines():
+        # инициируем запрос с заголовком
+        r = requests.get(f"https://api.artsy.net/api/artists/{line.strip()}", headers=headers)
 
-# разбираем ответ сервера
-j = json.loads(r.text)
-print(j)
+        # разбираем ответ сервера
+        j = json.loads(r.text)
+        ans[j['sortable_name']] = j['birthday']
+
+for i in sorted(ans.items(), key= lambda it: (it[1], it[0])):
+    print(i[0])
