@@ -1,4 +1,12 @@
-from xml.etree import ElementTree
+import xml.etree.ElementTree as ET
 
-tree = ElementTree.parse(input())
-root = tree.getroot()
+root = ET.fromstring(input())
+
+level = 0
+
+
+def lev_count():
+    pass
+
+
+print(root.tag, root.attrib)
