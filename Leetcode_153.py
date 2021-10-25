@@ -1,16 +1,11 @@
 def findMin(nums):
-    n = len(nums)
-    if n == 1:
+    if nums[0] <= nums[-1]:
         return nums[0]
-    if nums[0] < nums[-1]:
-        return nums[0]
-    if n == 2:
-        return nums[1]
-    mid = int(n / 2)
+    mid = len(nums)// 2
     if nums[mid] < nums[0]:
-        return findMin(nums[:mid+1])
+        return findMin(nums[1:mid+1])
     else:
-        return findMin(nums[mid:])
+        return findMin(nums[mid+1:])
 
 
-print(findMin([6,18,-6,1,2,3,4,5]))
+print(findMin([4,5,6,7,-5,0,1,2]))
