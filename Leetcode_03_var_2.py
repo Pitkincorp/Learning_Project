@@ -3,20 +3,14 @@ def lengthOfLongestSubstring(s):
     uniq = {}
     for i in range(len(s)):
         if s[i] not in uniq:
-            if i == len(uniq):
-                ans += 1
-            else:
-                length += 1
-                if length > ans:
-                    ans = length
             uniq[s[i]] = i
         else:
-            length = i - uniq[s[i]]
+            uniq = {k: v for k,v in uniq.items() if v > uniq[s[i]]}
             uniq[s[i]] = i
-            if length > ans:
-                ans = length
+        if len(uniq) > ans:
+            ans = len(uniq)
     return ans
 
 
-s = "a"
+s = "pwwkew"
 print(lengthOfLongestSubstring(s))
