@@ -2,11 +2,12 @@ def lengthOfLongestSubstring(s):
     ans = [0]
 
     def leng(s, ans):
-        # if not s:
-        #     return
         uniq = {}
         count = 0
+        max = len(set(s))
         for i in range(len(s)):
+            if ans[0] == max:
+                break
             if s[i] not in uniq:
                 count += 1
                 uniq[s[i]] = i
@@ -19,5 +20,5 @@ def lengthOfLongestSubstring(s):
     return ans[0]
 
 
-s = "bababbcca"
+s = "bababbca"
 print(lengthOfLongestSubstring(s))
