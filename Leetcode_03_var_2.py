@@ -1,7 +1,10 @@
 def lengthOfLongestSubstring(s):
     ans = 0
     uniq = {}
+    max = len(set(s))
     for i in range(len(s)):
+        if ans == max:
+            break
         if s[i] not in uniq:
             uniq[s[i]] = i
         else:
