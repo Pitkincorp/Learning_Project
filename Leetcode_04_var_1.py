@@ -19,11 +19,11 @@ def merge_two_list(a, b):
 
 
 def median(a,b):
-    l = merge_two_list(a, b)
-    length = len(l)
+    reslist = merge_two_list(a, b)
+    length = len(reslist)
     if length % 2:
-        return float(l[length//2])
-    return (l[length//2 - 1] + l[length//2]) / 2
+        return float(reslist[length // 2])
+    return (reslist[length // 2 - 1] + reslist[length // 2]) / 2
 
 
 a = []
