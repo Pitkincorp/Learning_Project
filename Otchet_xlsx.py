@@ -1,6 +1,6 @@
 import openpyxl
 
-book = openpyxl.open(r"C:\Users\YaYuBeletskiy\Desktop\Регистрация\+БЕЛЕЦКИЙ Я.Ю._Планы-отчёты_19.06.2018_Регистрация\+15.10.2021.xlsx",read_only=True)
+book = openpyxl.open(r"C:\Users\YaYuBeletskiy\Desktop\Регистрация\+БЕЛЕЦКИЙ Я.Ю._Планы-отчёты_19.06.2018_Регистрация\+15.11.2021.xlsx",read_only=True)
 sheet = book.active
 
 # for row in range(3,sheet.max_row+1):
