@@ -1,5 +1,5 @@
-def longestPalindrome( s):
-    '''Manacher algorith'''
+def longestPalindrome(s):
+    '''Manacher's algorithm'''
     _str = '$#' + '#'.join(s) + '#@'
     _id,mx = 0,0
     p = [0 for i in range(len(_str) + 1)]
@@ -21,5 +21,5 @@ def longestPalindrome( s):
     return _str[_id - p[_id] + 1:_id + p[_id]].replace('#','')
 
 
-s = "trabbarabba"
+s = "labbarabbatt"
 print(longestPalindrome(s))
