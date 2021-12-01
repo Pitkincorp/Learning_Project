@@ -16,13 +16,13 @@ def myAtoi(s: str) -> int:
         i += 1
     elif s[i] == '+':
         i += 1
-    if i < length and s[i].isdigit():
+    if i < length and s[i] in '0123456789':
         start = i
         i += 1
         end = i
     else: return 0
     while i < length:
-        if not s[i].isdigit():
+        if not s[i] in '0123456789':
             end = i
             break
         else: i += 1
