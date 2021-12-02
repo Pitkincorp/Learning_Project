@@ -1,5 +1,6 @@
 def threeSum(nums):
     ans = []
+    triangle_set = {}
     if not nums:
         return ans
     length = len(nums)
@@ -13,10 +14,12 @@ def threeSum(nums):
         for j in range(i+1,length-1):
             for k in range(j+1,length):
                 if sum((nums[i],nums[j],nums[k])) == 0:
-                    ans.append([nums[i],nums[j],nums[k]])
+                    if {nums[i],nums[j],nums[k]} not in triangle_set:
+                        ans.append([nums[i],nums[j],nums[k]])
+
     return ans
 
 
-s = [1,0,1,-2,4,2,-4]
+s = [1,0,1,-2,2,4,2,-4]
 print(threeSum(s))
 
