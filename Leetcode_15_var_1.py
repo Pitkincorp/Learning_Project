@@ -1,24 +1,31 @@
 def threeSum(nums):
+    '''поиск всех уникальных сочетаний из трёх чисел в списке,
+    дающих в сумме ноль'''
     ans = []
     triangle_list = []
+    # если список пустой:
     if not nums:
         return ans
     length = len(nums)
+    # если список имеет менее трёх элементов:
     if length < 3:
         return ans
+    # если список состоит только из трех элементов, дающих ноль:
     if len(nums) == 3 and sum(nums) == 0:
         return [nums]
+    # если список состоит целиком из нулей:
     if set(nums) == {0}:
         return [[0, 0, 0]]
-    if sum(nums) == sum([abs(i) for i in nums]):
-        return ans
+    # если в списке все числа одного знака (<0,>0):
+    # if abs(sum(nums)) == sum([abs(i) for i in nums]):
+    #     return ans
     for i in range(length-2):
         for j in range(i+1,length-1):
-            for k in range(j+1,length):
-                if sum((nums[i],nums[j],nums[k])) == 0:
-                    if {nums[i],nums[j],nums[k]} not in triangle_list:
-                        ans.append([nums[i],nums[j],nums[k]])
-                        triangle_list.append({nums[i],nums[j],nums[k]})
+            complement = -1 * (nums[i] + nums[j])
+            if complement in nums:
+                if {nums[i],nums[j],complement} not in triangle_list:
+                    ans.append([nums[i],nums[j],complement])
+                    triangle_list.append({nums[i],nums[j],complement})
     return ans
 
 
