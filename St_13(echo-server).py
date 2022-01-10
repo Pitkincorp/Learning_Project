@@ -1,11 +1,14 @@
 import socket
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind(('0.0.0.0', 2222))
-    s.listen(10)
-    conn, addr = s.accept()
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind(('0.0.0.0', 2222))
+sock.listen(10)
+while True:
+    conn, addr = sock.accept()
+
     while True:
         data = conn.recv(1024)
-        if data.decode() == 'close':
+        if not data or data == 'close':
+            conn.close()
             break
         conn.send(data)
